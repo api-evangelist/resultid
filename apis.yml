@@ -1,7 +1,30 @@
 aid: resultid
 name: Resultid
-description: Resultid is a company surfaced as a portfolio company of techstars and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Resultid is an enterprise Operational Intelligence platform that connects what
+  customers say, what teams do, and what operational data shows across every
+  product, location, and service to surface hidden revenue opportunities. It
+  ingests data from hundreds of sources - surveys, calls, CRM systems, reviews,
+  and service records - and applies AI to identify the behavioral patterns that
+  separate high-performing locations from underperformers, bridging the gap
+  between well-measured technical operations and largely invisible human
+  operations. The platform serves automotive, airlines, hospitality, financial
+  services, and retail enterprises. Resultid is a Techstars-backed company; this
+  API Evangelist profile was enriched from its public web presence, which today
+  exposes no public API, developer documentation, or SDKs - the product is
+  delivered through an authenticated application.
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
+image: https://www.resultid.ai/images/logo-white.svg
 url: https://raw.githubusercontent.com/api-evangelist/resultid/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -11,9 +34,16 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
+- Operational Intelligence
+- Analytics
+- Enterprise Software
+- Artificial Intelligence
+- Customer Experience
+- Data Integration
+- Revenue Intelligence
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -22,4 +52,19 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
-  url: https://resultid.com/
+  url: https://www.resultid.ai/
+- type: Login
+  url: https://app.resultid.com/
+- type: StatusPage
+  url: https://status.resultid.ai/
+- type: X
+  url: https://x.com/resultid
+- type: LinkedIn
+  url: https://www.linkedin.com/company/resultid
+- type: DomainSecurity
+  url: security/resultid-domain-security.yml
+x-enrichment:
+  date: '2026-07-20'
+  status: minimal
+  artifacts_added: 1
+  pass: local-v1
