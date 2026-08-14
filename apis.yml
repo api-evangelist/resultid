@@ -9,10 +9,13 @@ description: >-
   separate high-performing locations from underperformers, bridging the gap
   between well-measured technical operations and largely invisible human
   operations. The platform serves automotive, airlines, hospitality, financial
-  services, and retail enterprises. Resultid is a Techstars-backed company; this
-  API Evangelist profile was enriched from its public web presence, which today
-  exposes no public API, developer documentation, or SDKs - the product is
-  delivered through an authenticated application.
+  services, and retail enterprises. Resultid is a Techstars-backed company. It does
+  publish a developer surface, though it is not linked from the marketing site: an
+  MkDocs "Resultid API Docs" site at docs.resultid.com renders a FastAPI-generated
+  OpenAPI schema of nine read operations over campaigns, insights, trackers, themes
+  and highlight data, authenticated with an X-API-Key request header. The raw JSON
+  schema is not served and no API base URL is published anywhere, so the contract is
+  readable but not yet callable from the documentation alone.
 accessModel:
   pricing: unknown
   onboarding: unknown
@@ -34,7 +37,7 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-20'
+modified: '2026-08-14'
 tags:
 - Company
 - Operational Intelligence
@@ -44,13 +47,39 @@ tags:
 - Customer Experience
 - Data Integration
 - Revenue Intelligence
-apis: []
+apis:
+- aid: resultid:resultid-api
+  name: Resultid API
+  description: >-
+    Read API over Resultid's operational intelligence data - campaign data, campaign
+    theme data, campaign trend data, insight last-result payloads, insight grid rows
+    (whole-campaign or by filtered-data EFS key), unique tracker values, and every
+    highlight attached to a tracker value. Nine GET operations, each taking a JSON
+    request body of UUIDs and each authenticated with an X-API-Key request header.
+    Documented at docs.resultid.com, an MkDocs "Resultid API Docs" site that renders
+    the FastAPI-generated OpenAPI schema.
+  humanURL: https://docs.resultid.com/
+  x-base-url-status: >-
+    Not published. Resultid documents no servers[] block, no base URL and no host on
+    docs.resultid.com or resultid.ai; api.resultid.com and api.resultid.ai do not
+    resolve, and app.resultid.com is the web app SPA. Left unset rather than guessed.
+  tags:
+  - Operational Intelligence
+  - Analytics
+  - Customer Experience
+  - Insights
+  - Campaigns
+  properties:
+  - type: OpenAPI
+    url: openapi/resultid-api-openapi.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: AgenticAccess
+  url: agentic-access/resultid-agentic-access.yml
 - type: Website
   url: https://www.resultid.ai/
 - type: Login
@@ -63,8 +92,61 @@ common:
   url: https://www.linkedin.com/company/resultid
 - type: DomainSecurity
   url: security/resultid-domain-security.yml
+- type: GitHubOrganization
+  url: https://github.com/Resultid
+- type: Documentation
+  url: https://docs.resultid.com/
+- type: APIReference
+  url: https://docs.resultid.com/22_api_spec_test/
+- type: GettingStarted
+  url: https://docs.resultid.com/1_getting_started/
+- type: Authentication
+  url: authentication/resultid-authentication.yml
+- type: ErrorCatalog
+  url: errors/resultid-problem-types.yml
+- type: Conventions
+  url: conventions/resultid-conventions.yml
+- type: DataModel
+  url: data-model/resultid-data-model.yml
+- type: Conformance
+  url: conformance/resultid-conformance.yml
+- type: Lifecycle
+  url: lifecycle/resultid-lifecycle.yml
+- type: Packages
+  url: packages/resultid-packages.yml
+- type: LLMsTxt
+  url: llms/resultid-llms.txt
+- type: MCPServer
+  url: mcp/resultid-mcp.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Overlay
+  url: overlays/resultid-api-overlay.yaml
+- type: RateLimits
+  url: rate-limits/resultid-rate-limits.yml
+- type: Plans
+  url: plans/resultid-plans-pricing.yml
+x-pointers-deliberately-absent:
+  note: >-
+    Recorded so a later pass does not "fix" these by adding a pointer the provider has not
+    earned. Each was probed this round and genuinely missed.
+  WellKnown: No /.well-known/ document is served on any Resultid host - see well-known/resultid-well-known.yml
+  SecurityTxt: /.well-known/security.txt returns 404 on resultid.ai, 403 on docs.resultid.com
+  AgentCard: /.well-known/agent-card.json and /.well-known/agent.json miss on every host
+  SDKs: Resultid publishes no client library in any registry; the one first-party package is a macOS git GUI, not an API client
+  Idempotency: No idempotency contract is documented; the published API is read-only
+  Security: probe-security-programs.py found no disclosure policy or bug bounty; https://www.resultid.ai/security returns 404
+  Compliance: No certifications or compliance program are published on any reachable page
+  Deprecation: No deprecation or sunset policy is published
+  AsyncAPI: No event, streaming or webhook surface is documented
+  Webhooks: No webhook catalog is documented
+  Pricing: https://www.resultid.ai/pricing returns 404 and no pricing page exists
+  TermsOfService: https://www.resultid.ai/terms-of-use returns 404
+  PrivacyPolicy: https://www.resultid.ai/privacy-policy returns 404
+  Blog: https://www.resultid.ai/blog returns 404
+  Support: https://www.resultid.ai/contact returns 404
 x-enrichment:
-  date: '2026-07-20'
-  status: minimal
-  artifacts_added: 1
+  date: '2026-08-14'
+  status: enriched
+  artifacts_added: 16
   pass: local-v1
