@@ -1,0 +1,92 @@
+generated: '2026-08-14'
+method: derived
+source: openapi/resultid-api-openapi.yml
+note: >-
+  Entity graph derived from the id-reference fields in the nine published operations. Resultid
+  declares no response schemas (every 200 renders an empty schema), so entities and their
+  relationships are inferred ONLY from request-body identifier fields and operation names -
+  never from response payloads, because none are published. Attribute-level detail is therefore
+  genuinely unavailable, not omitted.
+identifier_convention:
+  style: uuid-string
+  prefixed: false
+entities:
+- name: Campaign
+  id_field: campaign_uuid
+  description: >-
+    The top-level unit of analysis. Every operation except get_insight_last_result is scoped to
+    a campaign_uuid.
+  evidence_operations:
+  - do_get_campaign_data_get_campaign_data_get
+  - do_get_campaign_theme_data_get_campaign_theme_data_get
+  - do_read_campaign_trend_data_read_campaign_trend_data_get
+  - do_get_campaign_uuids_get_campaign_uuids_get
+- name: Insight
+  id_field: insight_uuid
+  description: A computed insight; its most recent computation is retrievable as a last result.
+  evidence_operations: [do_get_insight_last_result_get_insight_last_result_get]
+- name: InsightGridRow
+  id_field: null
+  description: >-
+    A row of the insight grid, read either for a whole campaign or for a saved filtered-data EFS
+    key, optionally grouped by a grouping column.
+  evidence_operations:
+  - do_read_insight_grid_data_read_insight_grid_data_get
+  - do_read_insight_grid_data_by_filtered_data_efs_key_read_insight_grid_data_by_filtered_data_efs_key_get
+- name: FilteredDataSet
+  id_field: filtered_data_efs_key
+  description: A saved/filtered slice of campaign data addressed by an EFS key.
+  evidence_operations: [do_read_insight_grid_data_by_filtered_data_efs_key_read_insight_grid_data_by_filtered_data_efs_key_get]
+- name: GroupingColumn
+  id_field: grouping_column_uuid
+  description: The column an insight grid read is grouped by.
+  evidence_operations:
+  - do_read_insight_grid_data_read_insight_grid_data_get
+  - do_read_insight_grid_data_by_filtered_data_efs_key_read_insight_grid_data_by_filtered_data_efs_key_get
+- name: Tracker
+  id_field: tracker_uuid
+  description: A tracked dimension within a campaign whose distinct values can be enumerated.
+  evidence_operations: [do_get_unique_values_for_tracker_get_unique_values_for_tracker_get]
+- name: TrackerValue
+  id_field: tracker_value_str
+  description: >-
+    One distinct value of a tracker, addressed as a string rather than a UUID - the only
+    non-UUID entity key in the API.
+  evidence_operations:
+  - do_get_unique_values_for_tracker_get_unique_values_for_tracker_get
+  - do_get_all_highlights_for_tracker_value_get_all_highlights_for_tracker_value_get
+- name: Highlight
+  id_field: null
+  description: A source excerpt attached to a tracker value within a campaign.
+  evidence_operations: [do_get_all_highlights_for_tracker_value_get_all_highlights_for_tracker_value_get]
+- name: Theme
+  id_field: null
+  description: Campaign-level theme data returned by get_campaign_theme_data.
+  evidence_operations: [do_get_campaign_theme_data_get_campaign_theme_data_get]
+- name: TrendPoint
+  id_field: null
+  description: Campaign-level trend series returned by read_campaign_trend_data.
+  evidence_operations: [do_read_campaign_trend_data_read_campaign_trend_data_get]
+relationships:
+- {from: Campaign, to: Tracker, kind: has_many, via: campaign_uuid, confidence: high}
+- {from: Tracker, to: TrackerValue, kind: has_many, via: tracker_uuid, confidence: high}
+- {from: TrackerValue, to: Highlight, kind: has_many, via: tracker_value_str, confidence: high}
+- {from: Campaign, to: Theme, kind: has_many, via: campaign_uuid, confidence: high}
+- {from: Campaign, to: TrendPoint, kind: has_many, via: campaign_uuid, confidence: high}
+- {from: Campaign, to: InsightGridRow, kind: has_many, via: campaign_uuid, confidence: high}
+- {from: FilteredDataSet, to: InsightGridRow, kind: has_many, via: filtered_data_efs_key, confidence: high}
+- {from: InsightGridRow, to: GroupingColumn, kind: belongs_to, via: grouping_column_uuid, confidence: medium}
+- {from: Highlight, to: Campaign, kind: belongs_to, via: campaign_uuid, confidence: high}
+- from: Insight
+  to: Campaign
+  kind: belongs_to
+  via: null
+  confidence: low
+  note: >-
+    get_insight_last_result takes only insight_uuid, so the Insight-to-Campaign edge is implied
+    by the product vocabulary rather than by the contract.
+gaps:
+- No response schema is published for any operation, so no attribute is known for any entity.
+- Insight has no operation that lists or creates it; a caller must already hold an insight_uuid.
+- filtered_data_efs_key has no operation that produces it; a caller must already hold one.
+- The filters array item schema is empty, so filter predicates are undocumented.

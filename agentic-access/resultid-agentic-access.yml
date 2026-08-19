@@ -1,0 +1,104 @@
+generated: '2026-08-14'
+method: generated
+source: openapi/resultid-api-openapi.yml
+description: Recommended x-agentic-access execution contracts, classified heuristically from
+  the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
+  audience per deployment. See research/curity/agentic-governance/.
+summary:
+  operations: 9
+  by_action_class:
+    connected: 9
+  by_consequence:
+    read: 9
+  human_in_the_loop_required: 0
+operations:
+- path: /get_insight_last_result
+  method: get
+  operationId: do_get_insight_last_result_get_insight_last_result_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /get_all_highlights_for_tracker_value
+  method: get
+  operationId: do_get_all_highlights_for_tracker_value_get_all_highlights_for_tracker_value_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /get_campaign_data
+  method: get
+  operationId: do_get_campaign_data_get_campaign_data_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /get_campaign_theme_data
+  method: get
+  operationId: do_get_campaign_theme_data_get_campaign_theme_data_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /read_insight_grid_data
+  method: get
+  operationId: do_read_insight_grid_data_read_insight_grid_data_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /read_insight_grid_data_by_filtered_data_efs_key
+  method: get
+  operationId: do_read_insight_grid_data_by_filtered_data_efs_key_read_insight_grid_data_by_filtered_data_efs_key_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /read_campaign_trend_data
+  method: get
+  operationId: do_read_campaign_trend_data_read_campaign_trend_data_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /get_unique_values_for_tracker
+  method: get
+  operationId: do_get_unique_values_for_tracker_get_unique_values_for_tracker_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /get_campaign_uuids
+  method: get
+  operationId: do_get_campaign_uuids_get_campaign_uuids_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none

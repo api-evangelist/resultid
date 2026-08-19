@@ -1,0 +1,87 @@
+generated: '2026-08-14'
+method: derived
+source: openapi/resultid-api-openapi.yml
+docs: https://docs.resultid.com/1_getting_started/
+note: >-
+  Cross-cutting semantics for the Resultid API, derived from the nine operations Resultid
+  renders at docs.resultid.com/22_api_spec_test/. Most of the conventions layer is simply
+  ABSENT rather than different - Resultid publishes no idempotency contract, no pagination,
+  no request-id header, no versioning scheme and no rate-limit signalling. Those are recorded
+  below as not_documented so the gap is legible instead of invisible. NO Idempotency pointer
+  is emitted in apis.yml, because there is no idempotency contract to point at.
+authentication:
+  style: api-key-header
+  header: X-API-Key
+  applies_to: every operation
+  detail: authentication/resultid-authentication.yml
+request_shape:
+  http_method: GET
+  body: required
+  media_type: application/json
+  note: >-
+    All nine operations are GET with a REQUIRED JSON request body - an unusual shape that
+    many HTTP clients, caches, proxies and code generators handle poorly or strip entirely.
+    Callers should verify their client actually transmits a body on GET.
+  identifiers:
+    style: uuid-string
+    fields: [campaign_uuid, insight_uuid, tracker_uuid, grouping_column_uuid, filtered_data_efs_key]
+    note: Opaque string UUIDs; no prefixing scheme, no format constraint declared in the schema.
+idempotency:
+  supported: false
+  documented: false
+  note: >-
+    No Idempotency-Key header or equivalent is documented. All nine operations are reads, so
+    replay is naturally safe, but there is no published idempotency contract and no write
+    surface to apply one to.
+pagination:
+  supported: false
+  documented: false
+  note: >-
+    Not documented. read_insight_grid_data and read_insight_grid_data_by_filtered_data_efs_key
+    return grid rows with no limit/offset/cursor parameter and no declared response schema, so
+    result-set size and any server-side truncation are unknown to the caller.
+filtering:
+  supported: partial
+  detail: >-
+    read_insight_grid_data_by_filtered_data_efs_key accepts a filters array, but the array item
+    schema is empty ({}) in the published schema, so the filter grammar is undocumented.
+  grouping: grouping_column_uuid on the two insight-grid operations.
+field_expansion: {supported: false, documented: false}
+metadata: {supported: false, documented: false}
+request_tracing:
+  request_id_header: null
+  documented: false
+versioning:
+  scheme: none-in-path
+  current: '2.5.0'
+  source: info.version of the rendered schema
+  note: >-
+    No version appears in the URL path, in a header, or as a date. The 2.5.0 in the schema is
+    the application version, not a negotiated API version, and no version-selection mechanism
+    is published.
+error_envelope:
+  media_type: application/json
+  shape: '{"detail": [{"loc": [], "msg": "", "type": ""}]}'
+  rfc9457: false
+  detail: errors/resultid-problem-types.yml
+rate_limit_signalling:
+  headers: []
+  documented: false
+  detail: rate-limits/resultid-rate-limits.yml
+not_documented:
+- api base URL / servers block
+- api key issuance, rotation, scopes
+- 401/403/404/429/500 responses
+- successful (200) response schemas - rendered empty for all nine operations
+- pagination, filtering grammar, sorting
+- idempotency
+- rate limits and rate-limit response headers
+- request-id / correlation-id tracing
+- versioning and deprecation policy
+- webhooks or any event surface
+cross_links:
+  authentication: authentication/resultid-authentication.yml
+  errors: errors/resultid-problem-types.yml
+  lifecycle: lifecycle/resultid-lifecycle.yml
+  rate_limits: rate-limits/resultid-rate-limits.yml
+  data_model: data-model/resultid-data-model.yml

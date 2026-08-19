@@ -1,0 +1,36 @@
+generated: '2026-08-14'
+method: derived
+source: https://docs.resultid.com/22_api_spec_test/
+docs: https://docs.resultid.com/1_getting_started/
+note: >-
+  Resultid's published schema does not declare an OpenAPI securityScheme - the API key
+  is rendered as a required X-API-Key request header parameter on every one of the nine
+  operations, which is how FastAPI emits a Header(...) dependency. derive-authentication.py
+  therefore found nothing to aggregate; this profile is transcribed by hand from the
+  provider's own rendered parameter tables and from the Getting Started page, which says
+  only "Make requests using the API Key to the given endpoints". Resultid does not publish
+  how a key is issued, rotated or scoped, and there is no OAuth, OIDC or mTLS surface.
+summary:
+  types: [apiKey]
+  api_key_in: [header]
+  oauth2_flows: []
+  applies_to: all
+  operations_covered: 9
+  operations_total: 9
+schemes:
+- name: XApiKeyHeader
+  type: apiKey
+  in: header
+  parameter: X-API-Key
+  required: true
+  sources: [openapi/resultid-api-openapi.yml]
+  encoded_as: request-header-parameter
+  evidence: >-
+    Every operation on https://docs.resultid.com/22_api_spec_test/ renders an Input
+    parameters table whose single row is "X-API-Key | header | string | Nullable: No".
+gaps:
+- No key-issuance, rotation or revocation process is documented.
+- No scopes, permissions or per-key entitlement model is documented.
+- No securityScheme is declared in the schema, so the key requirement is only discoverable
+  per-operation rather than as an API-level security requirement.
+- No API base URL is published, so a key holder cannot determine where to send the header.

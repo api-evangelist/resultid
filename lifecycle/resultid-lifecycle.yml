@@ -1,0 +1,53 @@
+generated: '2026-08-14'
+method: searched
+source: https://status.resultid.ai/
+note: >-
+  Resultid runs a real, third-party-hosted status page and nothing else in the lifecycle layer.
+  There is no changelog, no release notes, no versioning policy, no deprecation policy, no SLA
+  and no roadmap on any reachable page. NO Deprecation pointer is emitted in apis.yml.
+status_page:
+  url: https://status.resultid.ai/
+  provider: incident.io
+  evidence: 'HTTP 200; DNS CNAME statuspage.incident.io; page reads "Resultid Status - We are fully operational"'
+  components:
+  - {name: Web App, uptime: 100%}
+  - {name: API, note: 'listed as a monitored component - independent evidence that Resultid operates an API'}
+  - {name: AI/Chat, uptime: 100%}
+  - {name: Notifications, uptime: 100%}
+  history_window: May 2026 - Aug 2026
+  subscribe: true
+versioning:
+  scheme: none
+  current: '2.5.0'
+  source: info.version of the schema rendered at https://docs.resultid.com/22_api_spec_test/
+  docs: null
+  note: Application version only; no version negotiation, no version in path or header.
+deprecation:
+  policy_url: null
+  sunset_header: false
+  documented: false
+sla:
+  url: null
+  uptime_target: null
+changelog:
+  url: null
+  documented: false
+deprecated_operations: []
+site_integrity:
+  checked: '2026-08-14'
+  finding: >-
+    Every internal link on https://www.resultid.ai/ and every URL listed in its own sitemap.xml
+    and llms.txt returns HTTP 404 while serving the homepage body. Probed and confirmed for
+    /docs, /docs/api, /security, /status, /pricing, /blog, /demo, /privacy-policy, /terms-of-use,
+    /contact, /case-studies, /careers, /solutions, /tools, /glossary, /compare, /guides and the
+    platform and industry pages. Only /, /robots.txt, /llms.txt and /sitemap.xml resolve.
+  consequence: >-
+    Resultid's public link surface (terms of service, privacy policy, pricing, support, blog,
+    security page) is advertised but not deployed, so none of it can be pointed at from apis.yml.
+  evidence:
+  - {url: 'https://www.resultid.ai/docs/api', status: 404}
+  - {url: 'https://www.resultid.ai/privacy-policy', status: 404}
+  - {url: 'https://www.resultid.ai/terms-of-use', status: 404}
+  - {url: 'https://www.resultid.ai/security', status: 404}
+  - {url: 'https://www.resultid.ai/blog', status: 404}
+  - {url: 'https://www.resultid.ai/sitemap.xml', status: 200}

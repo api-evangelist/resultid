@@ -1,0 +1,62 @@
+generated: '2026-08-14'
+method: derived
+source: openapi/resultid-api-openapi.yml
+note: >-
+  Standards posture derived from Resultid's published contract and probed hosts. Resultid makes
+  no compliance claims on any reachable page - its own /security page (linked from the homepage
+  and listed in its sitemap) returns HTTP 404, and probe-security-programs.py found no trust
+  center and no vulnerability-disclosure surface. NO Compliance pointer is emitted in apis.yml,
+  because there is no published compliance program to point at.
+standards:
+- id: openapi
+  conforms: true
+  evidence: >-
+    A FastAPI-generated OpenAPI schema (info.version 2.5.0) is rendered in full at
+    https://docs.resultid.com/22_api_spec_test/ - though only as HTML; the raw JSON is not served
+    (https://docs.resultid.com/openapi.json returns 403).
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: >-
+    Errors use FastAPI's application/json {"detail": [...]} envelope, not application/problem+json.
+- id: oauth2
+  conforms: false
+  evidence: No oauth2 securityScheme and no OAuth documentation; auth is a single X-API-Key header.
+- id: oidc
+  conforms: false
+  evidence: /.well-known/openid-configuration returns 404 on every Resultid host.
+- id: rfc8414-oauth-authorization-server-metadata
+  conforms: false
+  evidence: /.well-known/oauth-authorization-server returns 404 on every Resultid host.
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: /.well-known/security.txt returns 404 on resultid.ai and 403 on docs.resultid.com.
+- id: rfc8594-sunset-header
+  conforms: false
+  evidence: No deprecation or sunset policy is published.
+- id: rfc8615-well-known-uris
+  conforms: false
+  evidence: No /.well-known/ document is served on any host - see well-known/resultid-well-known.yml.
+- id: asyncapi
+  conforms: false
+  evidence: No event, streaming or webhook surface is documented.
+- id: mcp
+  conforms: false
+  evidence: No hosted MCP server; mcp.resultid.ai does not resolve.
+- id: a2a
+  conforms: false
+  evidence: /.well-known/agent-card.json and /.well-known/agent.json miss on every host.
+- id: llmstxt
+  conforms: true
+  evidence: >-
+    https://www.resultid.ai/llms.txt returns 200 text/plain, a hand-written 4.6KB llms.txt.
+    Note that most of the URLs it advertises return 404 - see lifecycle/resultid-lifecycle.yml.
+- id: json-api
+  conforms: false
+  evidence: Plain JSON, no JSON:API document structure.
+- id: rest-http-semantics
+  conforms: false
+  evidence: >-
+    All nine operations are GET with a REQUIRED request body, which RFC 9110 gives no defined
+    semantics for and which many intermediaries strip.
+certifications: []
+compliance_program_published: false

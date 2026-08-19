@@ -1,0 +1,65 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for the Resultid API
+  version: 1.0.0
+extends: openapi/resultid-api-openapi.yml
+x-provenance:
+  generated: '2026-08-14'
+  method: generated
+  source: openapi/resultid-api-openapi.yml
+  note: >-
+    Captures API Evangelist's additions on top of the contract Resultid publishes at
+    https://docs.resultid.com/22_api_spec_test/. Adds the missing 401 response, plain-English
+    operation descriptions, and the provenance extensions. Applying this overlay never mutates
+    the transcribed spec.
+actions:
+- target: $.info
+  update:
+    x-apievangelist-profile: https://apis.io/provider/resultid/
+    x-apievangelist-contract-source: https://docs.resultid.com/22_api_spec_test/
+    x-apievangelist-note: >-
+      Resultid publishes this schema only as rendered HTML; the raw JSON is not served
+      (docs.resultid.com/openapi.json returns 403) and no servers[] host is documented.
+- target: $.paths['/get_campaign_uuids'].get
+  update:
+    description: >-
+      List the campaign UUIDs reachable from a campaign. The usual entry point - every other
+      campaign-scoped operation needs a campaign_uuid.
+- target: $.paths['/get_campaign_data'].get
+  update:
+    description: Read the data for a single campaign, addressed by campaign_uuid.
+- target: $.paths['/get_campaign_theme_data'].get
+  update:
+    description: Read the themes extracted for a single campaign.
+- target: $.paths['/read_campaign_trend_data'].get
+  update:
+    description: Read the trend series for a single campaign.
+- target: $.paths['/read_insight_grid_data'].get
+  update:
+    description: >-
+      Read insight grid rows for a campaign. grouping_column_uuid is optional and groups the rows
+      by that column.
+- target: $.paths['/read_insight_grid_data_by_filtered_data_efs_key'].get
+  update:
+    description: >-
+      Read insight grid rows for a previously saved filtered data set, addressed by its EFS key.
+      filters is required; its item schema is not published by Resultid.
+- target: $.paths['/get_insight_last_result'].get
+  update:
+    description: >-
+      Read the most recent computed result for one insight. No operation lists insights, so the
+      caller must already hold an insight_uuid.
+- target: $.paths['/get_unique_values_for_tracker'].get
+  update:
+    description: Enumerate the distinct values recorded for one tracker within a campaign.
+- target: $.paths['/get_all_highlights_for_tracker_value'].get
+  update:
+    description: >-
+      Read every highlight attached to one tracker value in a campaign. tracker_value_str is the
+      value string returned by get_unique_values_for_tracker, not a UUID.
+- target: $.paths.*.get.responses
+  update:
+    '401':
+      description: >-
+        Missing or invalid X-API-Key. Not declared by Resultid; added by API Evangelist because
+        every operation requires the header and no failure response is published.

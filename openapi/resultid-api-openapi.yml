@@ -1,0 +1,437 @@
+openapi: 3.1.0
+info:
+  title: Resultid API
+  version: 2.5.0
+  description: Read API for Resultid campaign, insight, tracker and theme data. Transcribed from Resultid's own published
+    API reference at https://docs.resultid.com/22_api_spec_test/, which renders the FastAPI-generated OpenAPI schema. Authentication
+    is an X-API-Key request header on every operation.
+  x-source-info-title: Custom title
+  x-source-info-description: Here's a longer description of the custom OpenAPI schema
+x-derivation:
+  method: derived
+  source: https://docs.resultid.com/22_api_spec_test/
+  derived: '2026-08-14'
+  note: 'Resultid publishes its OpenAPI only as rendered HTML (mkdocs-material + neoteroi OpenAPI plugin). The raw JSON is
+    not served: https://docs.resultid.com/openapi.json returns 403. Every path, method, operationId, parameter, request-body
+    schema, response code and component schema below is transcribed verbatim from that rendering. operationIds are recovered
+    from the FastAPI Body_<operationId> component names shown on the page. Nothing has been invented. Two fields are NOT stated
+    by the rendering and are recorded here as such: the OpenAPI version (3.1.0 assumed from the FastAPI toolchain) and servers[]
+    (Resultid publishes no API base URL anywhere on docs.resultid.com or resultid.ai).'
+  not_published:
+  - servers
+  - openapi version string
+  - response 200 schemas (rendered empty)
+  - operation descriptions
+  - parameter descriptions
+tags:
+- name: Insight endpoints
+- name: Endpoints
+paths:
+  /get_insight_last_result:
+    get:
+      tags:
+      - Insight endpoints
+      summary: Do Get Insight Last Result
+      operationId: do_get_insight_last_result_get_insight_last_result_get
+      parameters:
+      - name: X-API-Key
+        in: header
+        required: true
+        schema:
+          type: string
+          title: X-Api-Key
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body_do_get_insight_last_result_get_insight_last_result_get'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /get_all_highlights_for_tracker_value:
+    get:
+      tags:
+      - Endpoints
+      summary: Do Get All Highlights For Tracker Value
+      operationId: do_get_all_highlights_for_tracker_value_get_all_highlights_for_tracker_value_get
+      parameters:
+      - name: X-API-Key
+        in: header
+        required: true
+        schema:
+          type: string
+          title: X-Api-Key
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body_do_get_all_highlights_for_tracker_value_get_all_highlights_for_tracker_value_get'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /get_campaign_data:
+    get:
+      tags:
+      - Endpoints
+      summary: Do Get Campaign Data
+      operationId: do_get_campaign_data_get_campaign_data_get
+      parameters:
+      - name: X-API-Key
+        in: header
+        required: true
+        schema:
+          type: string
+          title: X-Api-Key
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body_do_get_campaign_data_get_campaign_data_get'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /get_campaign_theme_data:
+    get:
+      tags:
+      - Endpoints
+      summary: Do Get Campaign Theme Data
+      operationId: do_get_campaign_theme_data_get_campaign_theme_data_get
+      parameters:
+      - name: X-API-Key
+        in: header
+        required: true
+        schema:
+          type: string
+          title: X-Api-Key
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body_do_get_campaign_theme_data_get_campaign_theme_data_get'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /read_insight_grid_data:
+    get:
+      tags:
+      - Endpoints
+      summary: Do Read Insight Grid Data
+      operationId: do_read_insight_grid_data_read_insight_grid_data_get
+      parameters:
+      - name: X-API-Key
+        in: header
+        required: true
+        schema:
+          type: string
+          title: X-Api-Key
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body_do_read_insight_grid_data_read_insight_grid_data_get'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /read_insight_grid_data_by_filtered_data_efs_key:
+    get:
+      tags:
+      - Endpoints
+      summary: Do Read Insight Grid Data By Filtered Data Efs Key
+      operationId: do_read_insight_grid_data_by_filtered_data_efs_key_read_insight_grid_data_by_filtered_data_efs_key_get
+      parameters:
+      - name: X-API-Key
+        in: header
+        required: true
+        schema:
+          type: string
+          title: X-Api-Key
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body_do_read_insight_grid_data_by_filtered_data_efs_key_read_insight_grid_data_by_filtered_data_efs_key_get'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /read_campaign_trend_data:
+    get:
+      tags:
+      - Endpoints
+      summary: Do Read Campaign Trend Data
+      operationId: do_read_campaign_trend_data_read_campaign_trend_data_get
+      parameters:
+      - name: X-API-Key
+        in: header
+        required: true
+        schema:
+          type: string
+          title: X-Api-Key
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body_do_read_campaign_trend_data_read_campaign_trend_data_get'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /get_unique_values_for_tracker:
+    get:
+      tags:
+      - Endpoints
+      summary: Do Get Unique Values For Tracker
+      operationId: do_get_unique_values_for_tracker_get_unique_values_for_tracker_get
+      parameters:
+      - name: X-API-Key
+        in: header
+        required: true
+        schema:
+          type: string
+          title: X-Api-Key
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body_do_get_unique_values_for_tracker_get_unique_values_for_tracker_get'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /get_campaign_uuids:
+    get:
+      tags:
+      - Endpoints
+      summary: Do Get Campaign Uuids
+      operationId: do_get_campaign_uuids_get_campaign_uuids_get
+      parameters:
+      - name: X-API-Key
+        in: header
+        required: true
+        schema:
+          type: string
+          title: X-Api-Key
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Body_do_get_campaign_uuids_get_campaign_uuids_get'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema: {}
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+components:
+  schemas:
+    Body_do_get_insight_last_result_get_insight_last_result_get:
+      properties:
+        insight_uuid:
+          type: string
+          title: Insight Uuid
+      type: object
+      required:
+      - insight_uuid
+      title: Body_do_get_insight_last_result_get_insight_last_result_get
+    Body_do_get_all_highlights_for_tracker_value_get_all_highlights_for_tracker_value_get:
+      properties:
+        campaign_uuid:
+          type: string
+          title: Campaign Uuid
+        tracker_value_str:
+          type: string
+          title: Tracker Value Str
+      type: object
+      required:
+      - campaign_uuid
+      - tracker_value_str
+      title: Body_do_get_all_highlights_for_tracker_value_get_all_highlights_for_tracker_value_get
+    Body_do_get_campaign_data_get_campaign_data_get:
+      properties:
+        campaign_uuid:
+          type: string
+          title: Campaign Uuid
+      type: object
+      required:
+      - campaign_uuid
+      title: Body_do_get_campaign_data_get_campaign_data_get
+    Body_do_get_campaign_theme_data_get_campaign_theme_data_get:
+      properties:
+        campaign_uuid:
+          type: string
+          title: Campaign Uuid
+      type: object
+      required:
+      - campaign_uuid
+      title: Body_do_get_campaign_theme_data_get_campaign_theme_data_get
+    Body_do_read_insight_grid_data_read_insight_grid_data_get:
+      properties:
+        campaign_uuid:
+          type: string
+          title: Campaign Uuid
+        grouping_column_uuid:
+          type: string
+          title: Grouping Column Uuid
+      type: object
+      required:
+      - campaign_uuid
+      title: Body_do_read_insight_grid_data_read_insight_grid_data_get
+    Body_do_read_insight_grid_data_by_filtered_data_efs_key_read_insight_grid_data_by_filtered_data_efs_key_get:
+      properties:
+        filtered_data_efs_key:
+          type: string
+          title: Filtered Data Efs Key
+        grouping_column_uuid:
+          type: string
+          title: Grouping Column Uuid
+        filters:
+          items: {}
+          type: array
+          title: Filters
+      type: object
+      required:
+      - filtered_data_efs_key
+      - filters
+      title: Body_do_read_insight_grid_data_by_filtered_data_efs_key_read_insight_grid_data_by_filtered_data_efs_key_get
+    Body_do_read_campaign_trend_data_read_campaign_trend_data_get:
+      properties:
+        campaign_uuid:
+          type: string
+          title: Campaign Uuid
+      type: object
+      required:
+      - campaign_uuid
+      title: Body_do_read_campaign_trend_data_read_campaign_trend_data_get
+    Body_do_get_unique_values_for_tracker_get_unique_values_for_tracker_get:
+      properties:
+        campaign_uuid:
+          type: string
+          title: Campaign Uuid
+        tracker_uuid:
+          type: string
+          title: Tracker Uuid
+      type: object
+      required:
+      - campaign_uuid
+      - tracker_uuid
+      title: Body_do_get_unique_values_for_tracker_get_unique_values_for_tracker_get
+    Body_do_get_campaign_uuids_get_campaign_uuids_get:
+      properties:
+        campaign_uuid:
+          type: string
+          title: Campaign Uuid
+      type: object
+      required:
+      - campaign_uuid
+      title: Body_do_get_campaign_uuids_get_campaign_uuids_get
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    ValidationError:
+      properties:
+        loc:
+          items: {}
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError

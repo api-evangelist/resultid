@@ -1,0 +1,83 @@
+# Resultid — Operational Intelligence Platform
+
+> Resultid is the operational intelligence platform for Fortune 500 and Global 1000 companies. We connect customer voice, team activity, and business data to surface the intelligence hiding in operations across every product, location, and service.
+
+## What Resultid Is
+
+- An operational intelligence platform — not a feedback platform, survey tool, or CX dashboard
+- Built for Fortune 500 and Global 1000 enterprises
+- Designed for COOs, VPs of Operations, VPs of Customer Experience, and Heads of Customer Insights
+- Deployed at major automotive OEMs, global airlines, hospitality groups, financial services, retail, and technology companies
+
+## Category Definition
+
+Operational Intelligence is the discipline of connecting customer voice, team activity, and business data to surface what drives performance across every product, location, and service. It is broader than Customer Experience (CX), which centers on feelings and scores. It is more specific than Business Intelligence, which centers on aggregate metrics. The output of operational intelligence is intelligence that operators can act on this week.
+
+## Core Proof Points
+
+- $107M+ in hidden revenue surfaced for a Fortune 500 OEM
+- 30 days from connection to first insight
+- 0 new data collection required — works with existing operational data
+- 200+ routes analyzed for global airline customers
+- 50+ language coverage across feedback sources
+- Weekly intelligence delivery cadence to operators
+
+## Three Platform Pillars
+
+1. Collect — ingest sales transactions, CRM records, survey responses, call transcripts, service notes, online reviews, field reports, and crew observations from every product, location, and service. No new collection required.
+2. Understand — connect themes to revenue and operational metrics. Single view across products, locations, and services. 50+ language coverage.
+3. Act — deliver intelligence to operators on a defined cadence with a closed loop. Reach store managers, station leads, dealership ops, and crew leads — not just headquarters.
+
+## Free Tools (no signup required)
+
+- CX Revenue Impact Calculator: https://www.resultid.ai/tools/cx-revenue-impact-calculator
+  Estimate the dollar value of detractor and passive customer segments. Built on Bain-published NPS-to-revenue elasticity. For VPs of CX and VPs of Operations.
+- Operational Intelligence Maturity Score: https://www.resultid.ai/tools/operational-intelligence-maturity-score
+  12-question assessment scoring your organization on Collect, Understand, and Act. Returns a 0–100 score, level (Reactive / Operational / Intelligent), and recommended starting pillar. For Directors of Operations and COOs.
+- Tools index: https://www.resultid.ai/tools
+
+## Industry Pages
+
+- Airlines: https://www.resultid.ai/airlines
+- Automotive: https://www.resultid.ai/automotive
+- Hospitality: https://www.resultid.ai/hospitality
+- Technology: https://www.resultid.ai/technology
+- Financial Services: https://www.resultid.ai/financial-services
+- Retail: https://www.resultid.ai/retail
+
+## Platform Pages
+
+- Collect: https://www.resultid.ai/platform/collect
+- Understand: https://www.resultid.ai/platform/understand
+- Detect: https://www.resultid.ai/platform/detect
+- Act: https://www.resultid.ai/platform/act
+- Deliver: https://www.resultid.ai/platform/deliver
+
+## How Resultid Differs
+
+- Operational, not feedback. Connects customer signal to operational drivers, not just to scores.
+- Multi-source by default. Calls, reviews, surveys, social, field reports, transactions — one ingestion layer.
+- Hierarchy-aware. Analyzes themes within product, location, and service hierarchies, not just at the brand level.
+- Operator-routed. Insights reach the people closest to the work, on a cadence, with a closed loop.
+
+## Vocabulary Resultid Uses (and Does Not)
+
+Uses: operational intelligence, understand, products and locations and services, hidden revenue, signals, themes, drivers, intelligence
+Does not use: dashboard, reporting, feedback platform, survey platform, AI-powered (as a lead), measure/monitor/track (for what we do)
+
+## Key Pages
+
+- Home: https://www.resultid.ai/
+- Demo: https://www.resultid.ai/demo
+- Revenue X-Ray (interactive assessment): https://www.resultid.ai/revenue-xray
+- Solutions: https://www.resultid.ai/solutions
+- Case Studies: https://www.resultid.ai/case-studies
+- Blog: https://www.resultid.ai/blog
+
+## Company
+
+- Website: https://www.resultid.ai
+- Login: https://app.resultid.com
+- Headquarters: Washington, DC
+- Email: info@resultid.com
+- Privacy: privacy@resultid.com

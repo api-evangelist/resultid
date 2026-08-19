@@ -1,0 +1,18 @@
+generated: '2026-08-14'
+method: searched
+source: https://docs.resultid.com/
+limit_count: 0
+note: >-
+  Resultid documents no rate limits. The API docs at docs.resultid.com carry no limits page and
+  no throttling language; the Getting Started page says only "Make requests using the API Key to
+  the given endpoints". No 429 response is declared on any of the nine operations, and no
+  rate-limit response headers are named anywhere. Nothing could be observed live either: no API
+  base URL is published, so there is no unauthenticated response to read headers from.
+limits: []
+response_headers: []
+exhaustion_status: null
+retry_after: false
+evidence:
+- {url: 'https://docs.resultid.com/1_getting_started/', status: 200, note: no limits documented}
+- {url: 'https://docs.resultid.com/22_api_spec_test/', status: 200, note: 'no 429 declared on any of the 9 operations'}
+- {url: 'https://docs.resultid.com/llms.txt', status: 403}

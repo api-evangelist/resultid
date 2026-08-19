@@ -1,0 +1,58 @@
+generated: '2026-08-14'
+method: derived
+source: openapi/resultid-api-openapi.yml
+format: fastapi-validation-error
+rfc9457: false
+note: >-
+  Resultid publishes no error reference. The only error response declared anywhere in the
+  schema is FastAPI's standard 422 Unprocessable Content, carried on all nine operations
+  with an HTTPValidationError envelope. No 4xx authentication/authorization response and no
+  5xx response is declared, even though every operation requires an X-API-Key header - so
+  the behaviour on a missing or invalid key is undocumented. Media type is application/json,
+  not application/problem+json.
+envelope:
+  media_type: application/json
+  shape: '{"detail": [{"loc": [...], "msg": "string", "type": "string"}]}'
+  schema: HTTPValidationError
+  item_schema: ValidationError
+  fields:
+  - name: detail
+    type: array
+    description: One entry per failed field
+  - name: 'detail[].loc'
+    type: array
+    description: Path to the offending field in the request body
+  - name: 'detail[].msg'
+    type: string
+    description: Human-readable validation message
+  - name: 'detail[].type'
+    type: string
+    description: Machine-readable validation error type
+problems:
+- status: 422
+  title: Validation Error
+  description: >-
+    Request body failed schema validation - a required UUID field is missing, null, or of
+    the wrong type.
+  media_type: application/json
+  schema: HTTPValidationError
+  remediation: >-
+    Check the required[] list of the operation's Body_* schema; every listed field must be
+    present and a string (or, for read_insight_grid_data_by_filtered_data_efs_key, filters
+    must be an array).
+  source_operations:
+  - openapi/resultid-api-openapi.yml#do_get_insight_last_result_get_insight_last_result_get
+  - openapi/resultid-api-openapi.yml#do_get_all_highlights_for_tracker_value_get_all_highlights_for_tracker_value_get
+  - openapi/resultid-api-openapi.yml#do_get_campaign_data_get_campaign_data_get
+  - openapi/resultid-api-openapi.yml#do_get_campaign_theme_data_get_campaign_theme_data_get
+  - openapi/resultid-api-openapi.yml#do_read_insight_grid_data_read_insight_grid_data_get
+  - openapi/resultid-api-openapi.yml#do_read_insight_grid_data_by_filtered_data_efs_key_read_insight_grid_data_by_filtered_data_efs_key_get
+  - openapi/resultid-api-openapi.yml#do_read_campaign_trend_data_read_campaign_trend_data_get
+  - openapi/resultid-api-openapi.yml#do_get_unique_values_for_tracker_get_unique_values_for_tracker_get
+  - openapi/resultid-api-openapi.yml#do_get_campaign_uuids_get_campaign_uuids_get
+undeclared:
+- {status: 401, note: Not declared, though every operation requires X-API-Key}
+- {status: 403, note: Not declared}
+- {status: 404, note: Not declared, though every operation is addressed by UUID}
+- {status: 429, note: Not declared; no rate limits are published}
+- {status: 500, note: Not declared}

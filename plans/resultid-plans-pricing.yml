@@ -1,0 +1,19 @@
+generated: '2026-08-14'
+method: searched
+source: https://www.resultid.ai/
+plan_count: 0
+note: >-
+  Resultid publishes no pricing at all. https://www.resultid.ai/pricing returns HTTP 404, no
+  pricing page appears in the site's own sitemap.xml, and neither the homepage nor the llms.txt
+  names a plan, a tier, a price or a unit of consumption. The go-to-market is enterprise
+  demo-request only - the homepage CTA is /demo (which itself returns 404). API pricing in
+  particular is entirely undocumented: docs.resultid.com says nothing about cost, quota or
+  entitlement.
+model: enterprise-contact-sales
+currency: null
+plans: []
+evidence:
+- {url: 'https://www.resultid.ai/pricing', status: 404}
+- {url: 'https://www.resultid.ai/demo', status: 404}
+- {url: 'https://www.resultid.ai/sitemap.xml', status: 200, note: 'lists 60+ URLs, none of them a pricing page'}
+- {url: 'https://www.resultid.ai/llms.txt', status: 200, note: 'no pricing or plan vocabulary'}

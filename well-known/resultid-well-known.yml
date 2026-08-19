@@ -1,0 +1,50 @@
+generated: '2026-08-14'
+method: probed
+source: live GET of each /.well-known/ path on every Resultid host
+note: >-
+  No Resultid host serves any /.well-known/ document. www.resultid.ai and resultid.ai
+  return an honest HTTP 404 on every path. app.resultid.com is a single-page app whose
+  catch-all answers HTTP 200 with a 1,890-byte HTML shell for EVERY path (including
+  /openapi.json and /.well-known/agent-card.json) - that is an SPA fallback, not a
+  document, and it is recorded as a miss. docs.resultid.com is a static MkDocs site on
+  CloudFront that returns 403 for any path it does not have. Because nothing returned a
+  real document, NO WellKnown and NO SecurityTxt pointer is emitted in apis.yml.
+hosts:
+- host: https://www.resultid.ai
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+  - {path: /.well-known/agent-card.json, status: 404}
+  - {path: /.well-known/agent.json, status: 404}
+- host: https://resultid.ai
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+  - {path: /.well-known/agent-card.json, status: 404}
+  - {path: /.well-known/agent.json, status: 404}
+- host: https://app.resultid.com
+  note: SPA catch-all - every path returns 200 with the same 1,890-byte HTML shell; all treated as misses
+  documents:
+  - {path: /.well-known/security.txt, status: 200, content_type: text/html, document: false}
+  - {path: /.well-known/openid-configuration, status: 200, content_type: text/html, document: false}
+  - {path: /.well-known/oauth-authorization-server, status: 200, content_type: text/html, document: false}
+  - {path: /.well-known/api-catalog, status: 200, content_type: text/html, document: false}
+  - {path: /.well-known/ai-plugin.json, status: 200, content_type: text/html, document: false}
+  - {path: /.well-known/agent-card.json, status: 200, content_type: text/html, document: false}
+  - {path: /.well-known/agent.json, status: 200, content_type: text/html, document: false}
+- host: https://docs.resultid.com
+  documents:
+  - {path: /.well-known/security.txt, status: 403}
+  - {path: /.well-known/agent-card.json, status: 403}
+- host: https://resultid.com
+  note: redirects to the resultid.ai marketing page; every path serves that page body
+  documents:
+  - {path: /.well-known/security.txt, status: 200, content_type: text/html, document: false}
+  - {path: /.well-known/agent-card.json, status: 200, content_type: text/html, document: false}
+found: []

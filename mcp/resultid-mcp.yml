@@ -1,0 +1,57 @@
+generated: '2026-08-14'
+method: derived
+status: candidate
+source: openapi/resultid-api-openapi.yml
+note: >-
+  Resultid ships no MCP server. mcp.resultid.ai does not resolve, no MCP endpoint or stdio
+  package is named in the docs, the llms.txt, the GitHub org (github.com/Resultid, one public
+  repo) or any registry. The tools below are a CANDIDATE mapping derived one-for-one from the
+  nine operations Resultid publishes - they are a proposal, not a surface anyone can call.
+deployment:
+  mode: none
+  endpoint: null
+  install: null
+  package: null
+  auth: api-key
+  verified: derived
+  note: >-
+    auth records what an MCP server would have to carry (the X-API-Key header every operation
+    requires), not an auth mode of a server that exists.
+server:
+  name: resultid
+  transport: null
+  url: null
+tools:
+- name: get_campaign_uuids
+  description: List the campaign UUIDs available for a campaign.
+  source_operation: openapi/resultid-api-openapi.yml#do_get_campaign_uuids_get_campaign_uuids_get
+- name: get_campaign_data
+  description: Read the data for one campaign.
+  source_operation: openapi/resultid-api-openapi.yml#do_get_campaign_data_get_campaign_data_get
+- name: get_campaign_theme_data
+  description: Read theme data for one campaign.
+  source_operation: openapi/resultid-api-openapi.yml#do_get_campaign_theme_data_get_campaign_theme_data_get
+- name: read_campaign_trend_data
+  description: Read the trend series for one campaign.
+  source_operation: openapi/resultid-api-openapi.yml#do_read_campaign_trend_data_read_campaign_trend_data_get
+- name: read_insight_grid_data
+  description: Read insight grid rows for a campaign, optionally grouped by a grouping column.
+  source_operation: openapi/resultid-api-openapi.yml#do_read_insight_grid_data_read_insight_grid_data_get
+- name: read_insight_grid_data_by_filtered_data_efs_key
+  description: Read insight grid rows for a saved filtered data set, with filters and an optional grouping column.
+  source_operation: openapi/resultid-api-openapi.yml#do_read_insight_grid_data_by_filtered_data_efs_key_read_insight_grid_data_by_filtered_data_efs_key_get
+- name: get_insight_last_result
+  description: Read the most recent result computed for one insight.
+  source_operation: openapi/resultid-api-openapi.yml#do_get_insight_last_result_get_insight_last_result_get
+- name: get_unique_values_for_tracker
+  description: Enumerate the distinct values of a tracker within a campaign.
+  source_operation: openapi/resultid-api-openapi.yml#do_get_unique_values_for_tracker_get_unique_values_for_tracker_get
+- name: get_all_highlights_for_tracker_value
+  description: Read every highlight attached to one tracker value in a campaign.
+  source_operation: openapi/resultid-api-openapi.yml#do_get_all_highlights_for_tracker_value_get_all_highlights_for_tracker_value_get
+blockers:
+- >-
+  No API base URL is published, so even a candidate server has no host to call. This is the
+  first thing Resultid would need to publish before an MCP server is buildable by anyone
+  outside the company.
+- Response schemas are undeclared, so tool outputs cannot be typed from the contract.

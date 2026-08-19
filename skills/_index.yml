@@ -1,0 +1,32 @@
+generated: '2026-08-14'
+method: generated
+source: openapi/resultid-api-openapi.yml
+note: >-
+  Two packaged Agent Skills covering the two coherent flows the nine published Resultid
+  operations support. Every operationId referenced is verified against
+  openapi/resultid-api-openapi.yml, which was itself transcribed from Resultid's own rendered
+  schema at https://docs.resultid.com/22_api_spec_test/.
+skills:
+- file: resultid-read-campaign-insight-grid.md
+  name: Read a Resultid campaign's insight grid
+  api: openapi/resultid-api-openapi.yml
+  operations:
+  - do_get_campaign_uuids_get_campaign_uuids_get
+  - do_get_campaign_data_get_campaign_data_get
+  - do_get_campaign_theme_data_get_campaign_theme_data_get
+  - do_read_insight_grid_data_read_insight_grid_data_get
+  - do_read_campaign_trend_data_read_campaign_trend_data_get
+- file: resultid-trace-tracker-value-to-highlights.md
+  name: Trace a Resultid tracker value to its source highlights
+  api: openapi/resultid-api-openapi.yml
+  operations:
+  - do_get_unique_values_for_tracker_get_unique_values_for_tracker_get
+  - do_get_all_highlights_for_tracker_value_get_all_highlights_for_tracker_value_get
+  - do_get_insight_last_result_get_insight_last_result_get
+not_covered:
+- do_read_insight_grid_data_by_filtered_data_efs_key_read_insight_grid_data_by_filtered_data_efs_key_get
+coverage_note: >-
+  read_insight_grid_data_by_filtered_data_efs_key is deliberately not made into a skill: it
+  requires a filtered_data_efs_key that no published operation produces, and its required
+  filters array has an empty item schema, so no honest step-by-step instruction can be written
+  for it from the published contract.

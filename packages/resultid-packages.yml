@@ -1,0 +1,38 @@
+generated: '2026-08-14'
+method: searched
+source: >-
+  npm registry search, PyPI JSON API, github.com/Resultid org listing, docs.resultid.com, and
+  https://www.resultid.ai/llms.txt
+note: >-
+  Resultid publishes NO client library for its API in any language or registry. npm search for
+  "resultid" returns no first-party package, https://pypi.org/pypi/resultid/json returns 404,
+  and the GitHub org github.com/Resultid holds exactly one public repository - a Homebrew tap
+  for a macOS desktop app. That app is genuinely first-party and is recorded below, but it is a
+  git worktree GUI, NOT a client for the Resultid API, so NO SDKs pointer is emitted in apis.yml
+  and sdk_count for this provider is honestly zero.
+sdk_count: 0
+packages:
+- language: swift-rust
+  registry: homebrew
+  name: conductor-git-controls
+  tap: Resultid/conductor-git-controls
+  url: https://github.com/Resultid/homebrew-conductor-git-controls
+  homepage: https://Resultid.github.io/homebrew-conductor-git-controls/
+  install: brew tap Resultid/conductor-git-controls && brew install --cask conductor-git-controls
+  official: true
+  is_api_client: false
+  version: 0.4.3
+  published: '2026-05-19'
+  version_source: >-
+    Casks/conductor-git-controls.rb on the master branch of the tap (version "0.4.3"); date from
+    the v0.4.3 entry in https://github.com/Resultid/homebrew-conductor-git-controls/releases.atom
+  description: >-
+    Conductor Git Controls - a macOS desktop app (Tauri + Svelte 5, arm64, macOS 12+) for managing
+    git worktrees across Conductor.build workspaces. Published by Resultid but unrelated to the
+    Resultid API; distributed as a Homebrew cask, not a registry package.
+  license: MIT
+registries_checked:
+- {registry: npm, query: 'https://registry.npmjs.org/-/v1/search?text=resultid', result: no first-party package}
+- {registry: pypi, query: 'https://pypi.org/pypi/resultid/json', result: 404}
+- {registry: github, query: 'https://api.github.com/orgs/Resultid/repos', result: '1 public repo (the Homebrew tap above)'}
+- {registry: docs, query: 'https://docs.resultid.com/', result: no SDK or client library referenced}
