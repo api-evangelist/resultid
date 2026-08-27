@@ -48,30 +48,24 @@ tags:
 - Data Integration
 - Revenue Intelligence
 apis:
-- aid: resultid:resultid-api
-  name: Resultid API
-  description: >-
-    Read API over Resultid's operational intelligence data - campaign data, campaign
-    theme data, campaign trend data, insight last-result payloads, insight grid rows
-    (whole-campaign or by filtered-data EFS key), unique tracker values, and every
-    highlight attached to a tracker value. Nine GET operations, each taking a JSON
-    request body of UUIDs and each authenticated with an X-API-Key request header.
-    Documented at docs.resultid.com, an MkDocs "Resultid API Docs" site that renders
-    the FastAPI-generated OpenAPI schema.
+- aid: resultid:resultid-endpoints-api
+  name: Resultid Endpoints API
+  description: The Endpoints API from Resultid — 8 operation(s) for endpoints.
   humanURL: https://docs.resultid.com/
-  x-base-url-status: >-
-    Not published. Resultid documents no servers[] block, no base URL and no host on
-    docs.resultid.com or resultid.ai; api.resultid.com and api.resultid.ai do not
-    resolve, and app.resultid.com is the web app SPA. Left unset rather than guessed.
   tags:
-  - Operational Intelligence
-  - Analytics
-  - Customer Experience
-  - Insights
-  - Campaigns
+  - Endpoints
   properties:
   - type: OpenAPI
-    url: openapi/resultid-api-openapi.yml
+    url: openapi/resultid-endpoints-api-openapi.yml
+- aid: resultid:resultid-insight-endpoints-api
+  name: Resultid Insight endpoints API
+  description: The Insight endpoints API from Resultid — 1 operation(s) for insight endpoints.
+  humanURL: https://docs.resultid.com/
+  tags:
+  - Insight endpoints
+  properties:
+  - type: OpenAPI
+    url: openapi/resultid-insight-endpoints-api-openapi.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
