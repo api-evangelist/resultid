@@ -16,6 +16,18 @@ description: >-
   and highlight data, authenticated with an X-API-Key request header. The raw JSON
   schema is not served and no API base URL is published anywhere, so the contract is
   readable but not yet callable from the documentation alone.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: unknown
