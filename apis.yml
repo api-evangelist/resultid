@@ -64,7 +64,8 @@ apis:
   name: Resultid Endpoints API
   description: The Endpoints API from Resultid — 8 operation(s) for endpoints.
   humanURL: https://docs.resultid.com/
-  tags:
+  tags: []
+  tags_raw:
   - Endpoints
   properties:
   - type: OpenAPI
@@ -74,6 +75,8 @@ apis:
   description: The Insight endpoints API from Resultid — 1 operation(s) for insight endpoints.
   humanURL: https://docs.resultid.com/
   tags:
+  - Insight Endpoints
+  tags_raw:
   - Insight endpoints
   properties:
   - type: OpenAPI
