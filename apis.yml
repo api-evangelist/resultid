@@ -30,14 +30,18 @@ deliveryModel:
   method: derived
 accessModel:
   pricing: unknown
-  onboarding: unknown
+  onboarding: approval
   trial: false
   try_now: false
   public: false
-  label: Unknown
-  confidence: low
-  source: []
-  generated: '2026-07-22'
+  label: Requires approval
+  confidence: medium
+  source:
+  - plans
+  - authentication
+  - rate-limits
+  - security
+  generated: '2026-09-03'
   method: derived
 image: https://www.resultid.ai/images/logo-white.svg
 url: https://raw.githubusercontent.com/api-evangelist/resultid/refs/heads/main/apis.yml
@@ -125,8 +129,9 @@ common:
   url: packages/resultid-packages.yml
 - type: LLMsTxt
   url: llms/resultid-llms.txt
-- type: MCPServer
+- type: X-MCPServerCandidate
   url: mcp/resultid-mcp.yml
+  note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate — a tool list derived from the published API contracts, not an existing server. The scorer already read the manifest and reported mcp_server correctly; the MCPServer type was crediting the artifact-type surfaces with a server that does not exist.'
 - type: AgentSkill
   url: skills/_index.yml
 - type: Overlay
