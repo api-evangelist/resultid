@@ -6,12 +6,12 @@ info:
   x-source-info-title: Custom title
   x-source-info-description: Here's a longer description of the custom OpenAPI schema
 tags:
-- name: Insight endpoints
+- name: Insight Endpoints
 paths:
   /get_insight_last_result:
     get:
       tags:
-      - Insight endpoints
+      - Insight Endpoints
       summary: Do Get Insight Last Result
       operationId: do_get_insight_last_result_get_insight_last_result_get
       parameters:
@@ -41,24 +41,6 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    Body_do_get_insight_last_result_get_insight_last_result_get:
-      properties:
-        insight_uuid:
-          type: string
-          title: Insight Uuid
-      type: object
-      required:
-      - insight_uuid
-      title: Body_do_get_insight_last_result_get_insight_last_result_get
     ValidationError:
       properties:
         loc:
@@ -77,6 +59,24 @@ components:
       - msg
       - type
       title: ValidationError
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    Body_do_get_insight_last_result_get_insight_last_result_get:
+      properties:
+        insight_uuid:
+          type: string
+          title: Insight Uuid
+      type: object
+      required:
+      - insight_uuid
+      title: Body_do_get_insight_last_result_get_insight_last_result_get
 x-derivation:
   method: derived
   source: https://docs.resultid.com/22_api_spec_test/

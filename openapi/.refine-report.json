@@ -1,0 +1,22 @@
+{
+  "provider": "resultid",
+  "sources": [
+    "_original/resultid-api-openapi.yml"
+  ],
+  "outputs": [
+    "resultid-endpoints-api-openapi.yml",
+    "resultid-insight-endpoints-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "resultid-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "resultid-endpoints-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "resultid-insight-endpoints-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
+}

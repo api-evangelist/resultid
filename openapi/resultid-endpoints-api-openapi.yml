@@ -258,15 +258,6 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
-    Body_do_get_campaign_uuids_get_campaign_uuids_get:
-      properties:
-        campaign_uuid:
-          type: string
-          title: Campaign Uuid
-      type: object
-      required:
-      - campaign_uuid
-      title: Body_do_get_campaign_uuids_get_campaign_uuids_get
     Body_do_get_campaign_data_get_campaign_data_get:
       properties:
         campaign_uuid:
@@ -276,33 +267,6 @@ components:
       required:
       - campaign_uuid
       title: Body_do_get_campaign_data_get_campaign_data_get
-    ValidationError:
-      properties:
-        loc:
-          items: {}
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
-    Body_do_read_campaign_trend_data_read_campaign_trend_data_get:
-      properties:
-        campaign_uuid:
-          type: string
-          title: Campaign Uuid
-      type: object
-      required:
-      - campaign_uuid
-      title: Body_do_read_campaign_trend_data_read_campaign_trend_data_get
     Body_do_read_insight_grid_data_read_insight_grid_data_get:
       properties:
         campaign_uuid:
@@ -324,6 +288,41 @@ components:
           title: Detail
       type: object
       title: HTTPValidationError
+    Body_do_get_all_highlights_for_tracker_value_get_all_highlights_for_tracker_value_get:
+      properties:
+        campaign_uuid:
+          type: string
+          title: Campaign Uuid
+        tracker_value_str:
+          type: string
+          title: Tracker Value Str
+      type: object
+      required:
+      - campaign_uuid
+      - tracker_value_str
+      title: Body_do_get_all_highlights_for_tracker_value_get_all_highlights_for_tracker_value_get
+    Body_do_get_unique_values_for_tracker_get_unique_values_for_tracker_get:
+      properties:
+        campaign_uuid:
+          type: string
+          title: Campaign Uuid
+        tracker_uuid:
+          type: string
+          title: Tracker Uuid
+      type: object
+      required:
+      - campaign_uuid
+      - tracker_uuid
+      title: Body_do_get_unique_values_for_tracker_get_unique_values_for_tracker_get
+    Body_do_get_campaign_uuids_get_campaign_uuids_get:
+      properties:
+        campaign_uuid:
+          type: string
+          title: Campaign Uuid
+      type: object
+      required:
+      - campaign_uuid
+      title: Body_do_get_campaign_uuids_get_campaign_uuids_get
     Body_do_read_insight_grid_data_by_filtered_data_efs_key_read_insight_grid_data_by_filtered_data_efs_key_get:
       properties:
         filtered_data_efs_key:
@@ -341,32 +340,24 @@ components:
       - filtered_data_efs_key
       - filters
       title: Body_do_read_insight_grid_data_by_filtered_data_efs_key_read_insight_grid_data_by_filtered_data_efs_key_get
-    Body_do_get_unique_values_for_tracker_get_unique_values_for_tracker_get:
+    ValidationError:
       properties:
-        campaign_uuid:
+        loc:
+          items: {}
+          type: array
+          title: Location
+        msg:
           type: string
-          title: Campaign Uuid
-        tracker_uuid:
+          title: Message
+        type:
           type: string
-          title: Tracker Uuid
+          title: Error Type
       type: object
       required:
-      - campaign_uuid
-      - tracker_uuid
-      title: Body_do_get_unique_values_for_tracker_get_unique_values_for_tracker_get
-    Body_do_get_all_highlights_for_tracker_value_get_all_highlights_for_tracker_value_get:
-      properties:
-        campaign_uuid:
-          type: string
-          title: Campaign Uuid
-        tracker_value_str:
-          type: string
-          title: Tracker Value Str
-      type: object
-      required:
-      - campaign_uuid
-      - tracker_value_str
-      title: Body_do_get_all_highlights_for_tracker_value_get_all_highlights_for_tracker_value_get
+      - loc
+      - msg
+      - type
+      title: ValidationError
     Body_do_get_campaign_theme_data_get_campaign_theme_data_get:
       properties:
         campaign_uuid:
@@ -376,6 +367,15 @@ components:
       required:
       - campaign_uuid
       title: Body_do_get_campaign_theme_data_get_campaign_theme_data_get
+    Body_do_read_campaign_trend_data_read_campaign_trend_data_get:
+      properties:
+        campaign_uuid:
+          type: string
+          title: Campaign Uuid
+      type: object
+      required:
+      - campaign_uuid
+      title: Body_do_read_campaign_trend_data_read_campaign_trend_data_get
 x-derivation:
   method: derived
   source: https://docs.resultid.com/22_api_spec_test/
