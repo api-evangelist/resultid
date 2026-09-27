@@ -258,6 +258,54 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
+    Body_do_read_campaign_trend_data_read_campaign_trend_data_get:
+      properties:
+        campaign_uuid:
+          type: string
+          title: Campaign Uuid
+      type: object
+      required:
+      - campaign_uuid
+      title: Body_do_read_campaign_trend_data_read_campaign_trend_data_get
+    Body_do_get_all_highlights_for_tracker_value_get_all_highlights_for_tracker_value_get:
+      properties:
+        campaign_uuid:
+          type: string
+          title: Campaign Uuid
+        tracker_value_str:
+          type: string
+          title: Tracker Value Str
+      type: object
+      required:
+      - campaign_uuid
+      - tracker_value_str
+      title: Body_do_get_all_highlights_for_tracker_value_get_all_highlights_for_tracker_value_get
+    Body_do_read_insight_grid_data_by_filtered_data_efs_key_read_insight_grid_data_by_filtered_data_efs_key_get:
+      properties:
+        filtered_data_efs_key:
+          type: string
+          title: Filtered Data Efs Key
+        grouping_column_uuid:
+          type: string
+          title: Grouping Column Uuid
+        filters:
+          items: {}
+          type: array
+          title: Filters
+      type: object
+      required:
+      - filtered_data_efs_key
+      - filters
+      title: Body_do_read_insight_grid_data_by_filtered_data_efs_key_read_insight_grid_data_by_filtered_data_efs_key_get
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
     Body_do_get_campaign_data_get_campaign_data_get:
       properties:
         campaign_uuid:
@@ -279,28 +327,15 @@ components:
       required:
       - campaign_uuid
       title: Body_do_read_insight_grid_data_read_insight_grid_data_get
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    Body_do_get_all_highlights_for_tracker_value_get_all_highlights_for_tracker_value_get:
+    Body_do_get_campaign_uuids_get_campaign_uuids_get:
       properties:
         campaign_uuid:
           type: string
           title: Campaign Uuid
-        tracker_value_str:
-          type: string
-          title: Tracker Value Str
       type: object
       required:
       - campaign_uuid
-      - tracker_value_str
-      title: Body_do_get_all_highlights_for_tracker_value_get_all_highlights_for_tracker_value_get
+      title: Body_do_get_campaign_uuids_get_campaign_uuids_get
     Body_do_get_unique_values_for_tracker_get_unique_values_for_tracker_get:
       properties:
         campaign_uuid:
@@ -314,7 +349,7 @@ components:
       - campaign_uuid
       - tracker_uuid
       title: Body_do_get_unique_values_for_tracker_get_unique_values_for_tracker_get
-    Body_do_get_campaign_uuids_get_campaign_uuids_get:
+    Body_do_get_campaign_theme_data_get_campaign_theme_data_get:
       properties:
         campaign_uuid:
           type: string
@@ -322,24 +357,7 @@ components:
       type: object
       required:
       - campaign_uuid
-      title: Body_do_get_campaign_uuids_get_campaign_uuids_get
-    Body_do_read_insight_grid_data_by_filtered_data_efs_key_read_insight_grid_data_by_filtered_data_efs_key_get:
-      properties:
-        filtered_data_efs_key:
-          type: string
-          title: Filtered Data Efs Key
-        grouping_column_uuid:
-          type: string
-          title: Grouping Column Uuid
-        filters:
-          items: {}
-          type: array
-          title: Filters
-      type: object
-      required:
-      - filtered_data_efs_key
-      - filters
-      title: Body_do_read_insight_grid_data_by_filtered_data_efs_key_read_insight_grid_data_by_filtered_data_efs_key_get
+      title: Body_do_get_campaign_theme_data_get_campaign_theme_data_get
     ValidationError:
       properties:
         loc:
@@ -358,24 +376,6 @@ components:
       - msg
       - type
       title: ValidationError
-    Body_do_get_campaign_theme_data_get_campaign_theme_data_get:
-      properties:
-        campaign_uuid:
-          type: string
-          title: Campaign Uuid
-      type: object
-      required:
-      - campaign_uuid
-      title: Body_do_get_campaign_theme_data_get_campaign_theme_data_get
-    Body_do_read_campaign_trend_data_read_campaign_trend_data_get:
-      properties:
-        campaign_uuid:
-          type: string
-          title: Campaign Uuid
-      type: object
-      required:
-      - campaign_uuid
-      title: Body_do_read_campaign_trend_data_read_campaign_trend_data_get
 x-derivation:
   method: derived
   source: https://docs.resultid.com/22_api_spec_test/
