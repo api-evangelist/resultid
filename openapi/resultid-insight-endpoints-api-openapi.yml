@@ -41,6 +41,15 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
 components:
   schemas:
+    Body_do_get_insight_last_result_get_insight_last_result_get:
+      properties:
+        insight_uuid:
+          type: string
+          title: Insight Uuid
+      type: object
+      required:
+      - insight_uuid
+      title: Body_do_get_insight_last_result_get_insight_last_result_get
     ValidationError:
       properties:
         loc:
@@ -59,15 +68,6 @@ components:
       - msg
       - type
       title: ValidationError
-    Body_do_get_insight_last_result_get_insight_last_result_get:
-      properties:
-        insight_uuid:
-          type: string
-          title: Insight Uuid
-      type: object
-      required:
-      - insight_uuid
-      title: Body_do_get_insight_last_result_get_insight_last_result_get
     HTTPValidationError:
       properties:
         detail:
