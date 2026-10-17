@@ -50,6 +50,15 @@ components:
       required:
       - insight_uuid
       title: Body_do_get_insight_last_result_get_insight_last_result_get
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
     ValidationError:
       properties:
         loc:
@@ -68,15 +77,6 @@ components:
       - msg
       - type
       title: ValidationError
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
 x-derivation:
   method: derived
   source: https://docs.resultid.com/22_api_spec_test/
