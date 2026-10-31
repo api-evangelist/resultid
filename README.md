@@ -64,6 +64,121 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Resultid is a company surfaced as a portfolio company of techstars and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+Resultid is an enterprise Operational Intelligence platform that connects what customers say, what teams do, and what operational data shows across every product, location, and service to surface hidden revenue opportunities. It ingests data from hundreds of sources - surveys, calls, CRM systems, reviews, and service records - and applies AI to identify the behavioral patterns that separate high-performing locations from underperformers, bridging the gap between well-measured technical operations and largely invisible human operations. The platform serves automotive, airlines, hospitality, financial services, and retail enterprises. Resultid is a Techstars-backed company. It does publish a developer surface, though it is not linked from the marketing site: an MkDocs "Resultid API Docs" site at docs.resultid.com renders a FastAPI-generated OpenAPI schema of nine read operations over campaigns, insights, trackers, themes and highlight data, authenticated with an X-API-Key request header. The raw JSON schema is not served and no API base URL is published anywhere, so the contract is readable but not yet callable from the documentation alone.
 
-Backed by: techstars — https://resultid.com/
+**Areas:** Company · Operational Intelligence · Analytics · Enterprise Software · Artificial Intelligence · Customer Experience · Data Integration · Revenue Intelligence
+
+## Resultid on APIs.io
+
+Everything profiled for Resultid is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/resultid/](https://apis.io/providers/resultid/)** — or go straight to one of the APIs or properties below.
+
+### APIs (2)
+
+- [Resultid Endpoints API](https://apis.io/apis/resultid/resultid-endpoints-api/) — The Endpoints API from Resultid — 8 operation(s) for endpoints.
+- [Resultid Insight endpoints API](https://apis.io/apis/resultid/resultid-insight-endpoints-api/) — The Insight endpoints API from Resultid — 1 operation(s) for insight endpoints.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [resultid](https://apis.io/servers/resultid/resultid/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Resultid Agentic Access](https://apis.io/agentic-access/resultid/resultid-agentic-access/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Resultid Api Overlay](https://apis.io/overlays/resultid/resultid-api-overlay/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Resultid Authentication](https://apis.io/security/resultid/resultid-authentication/)
+- [Resultid Domain Security](https://apis.io/security/resultid/resultid-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Resultid Plans Pricing](https://apis.io/plans/resultid/resultid-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Resultid Rate Limits](https://apis.io/rate-limits/resultid/resultid-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.resultid.ai/)
+- [Documentation](https://docs.resultid.com/)
+- [Getting started](https://docs.resultid.com/1_getting_started/)
+- [API reference](https://docs.resultid.com/22_api_spec_test/)
+- [Blog](https://www.resultid.ai/blog/)
+- [GitHub](https://github.com/Resultid)
+- [Status](https://status.resultid.ai/)
+
+## API Evangelist rating
+
+**Kin Score 28.9** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 64.3 |
+| Contract quality | 37.0 |
+| Contract governance | 4.5 |
+| Operational transparency | 18.4 |
+| Developer ergonomics | 44.6 |
+| Access clarity | 6.6 |
+
+**Agent readiness 30.6** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | na |
+| Error Semantics | verified |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 15.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/resultid/](https://apis.io/providers/resultid/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Resultid: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/resultid/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
